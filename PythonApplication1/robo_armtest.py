@@ -1,48 +1,53 @@
 import pygame
 import time
-#screen = pygame.display.set_mode((600,400))
+#import brickpi3
 
 CLOCK = pygame.time.Clock()
 clock_speed = 20
 
 positions = {0,0,0} # Declare an array size of 3 to hold the positions of the 3 motors
-
 running = True
 pygame.init()
-base_move_right = False
-base_move_left = False
-arm_move_up = False
-arm_move_down = False
-claw_move_close = False
-claw_move_open = False
+
+#BP= brickpi3.BrickPi3()
+
+WIDTH=600
+HEIGHT=480
+SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
 
 while running:
     for event in pygame.event.get():
-        print('loop')
         if event.type == pygame.KEYDOWN:
-
             # Movement of the Base right and left using the left and right arrow key
             if event.key == pygame.K_LEFT:
+                #BP.set_motor_speed(PORT_A,20)
                 print("left")
             elif event.key == pygame.K_RIGHT:
+                #BP.set_motor_speed(PORT_A,-20)
                 print("right")
             elif event.key == pygame.K_UP:
+                #BP.set_motor_speed(PORT_B,20)
                 print("Up")
             elif event.key == pygame.K_DOWN:
+                #BP.set_motor_speed(PORT_B,20)
                 print("Down")
             elif event.key == pygame.K_2:
+                #BP.set_motor_speed(PORT_C,20)
                 print("close")
             elif event.key == pygame.K_1:
+                #BP.set_motor_speed(PORT_C,20)
                 print("Open")
             elif event.key == pygame.K_q:
                 running = False
+            else:
+                print("unrecognized key")
         if event.type == pygame.KEYUP:
+            #BP.reset_all()
             print("OFF")
            
 
         #set clock speed to limit cpu usage
         CLOCK.tick(clock_speed)
+pygame.quit()
 print("QUIT")
-#BP.set_motor_position(PORT_A,0)
-#BP.set_motor_position(PORT_B,0)
-#BP.set_motor_position(PORT_C,0)
+#BP.reset_all()
