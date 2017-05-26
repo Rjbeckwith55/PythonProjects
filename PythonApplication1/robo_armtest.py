@@ -29,10 +29,10 @@ while running:
                 BP.set_motor_power(BP.PORT_B,20)
                 print("Up")
             elif event.key == pygame.K_DOWN:
-                BP.set_motor_power(BP.PORT_B,20)
+                BP.set_motor_power(BP.PORT_B,-20)
                 print("Down")
             elif event.key == pygame.K_2:
-                BP.set_motor_power(BP.PORT_C,20)
+                BP.set_motor_power(BP.PORT_C,-20)
                 print("close")
             elif event.key == pygame.K_1:
                 BP.set_motor_power(BP.PORT_C,20)
