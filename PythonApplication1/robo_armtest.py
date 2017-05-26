@@ -20,22 +20,22 @@ while running:
         if event.type == pygame.KEYDOWN:
             # Movement of the Base right and left using the left and right arrow key
             if event.key == pygame.K_LEFT:
-                BP.set_motor_speed(PORT_A,20)
+                BP.set_motor_power(BP.PORT_A,20)
                 print("left")
             elif event.key == pygame.K_RIGHT:
-                BP.set_motor_speed(PORT_A,-20)
+                BP.set_motor_power(BP.PORT_A,-20)
                 print("right")
             elif event.key == pygame.K_UP:
-                BP.set_motor_speed(PORT_B,20)
+                BP.set_motor_power(BP.PORT_B,20)
                 print("Up")
             elif event.key == pygame.K_DOWN:
-                BP.set_motor_speed(PORT_B,20)
+                BP.set_motor_power(BP.PORT_B,20)
                 print("Down")
             elif event.key == pygame.K_2:
-                BP.set_motor_speed(PORT_C,20)
+                BP.set_motor_power(BP.PORT_C,20)
                 print("close")
             elif event.key == pygame.K_1:
-                BP.set_motor_speed(PORT_C,20)
+                BP.set_motor_power(BP.PORT_C,20)
                 print("Open")
             elif event.key == pygame.K_q:
                 running = False
