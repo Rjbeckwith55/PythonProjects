@@ -26,7 +26,10 @@
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Google_Speech_Recognition.py">
+    <Compile Include="game.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ship.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
