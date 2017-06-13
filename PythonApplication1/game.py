@@ -7,7 +7,7 @@ from ship import Ship
 def run_game():
     pygame.init()
     screen = pygame.display.set_mode((640,480))
-    pygame.display.set_caption("Game Title")
+    pygame.display.set_caption("Rocket Game")
     
     #Make a new ship
     ship = Ship(screen)
