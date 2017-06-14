@@ -1,8 +1,8 @@
 import time
 import socket 
-import brickpi3
+#import brickpi3
 
-BP.brickpi3.BrickPi3()
+#BP.brickpi3.BrickPi3()
 word = ''
 PORT=9500
 s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -19,18 +19,18 @@ while word != "STOP":
     print("You said: " + word)
     if word == "left":
         print("LEFT")
-        BP.set_motor_position(BP.Port_A,45)
+        #BP.set_motor_position(BP.Port_A,45)
     elif word == "right":
         print("RIGHT")
-        BP.set_motor_position(BP.Port_A,-45)
+        #BP.set_motor_position(BP.Port_A,-45)
     elif word == "shoot":
         print("SHOOT")
-        BP.set_motor_power(BP.Port_B,200)
-        time.sleep(.65)
-        BP.set_motor_power(BP.Port_B,0)
+        #BP.set_motor_power(BP.Port_B,200)
+        #time.sleep(.65)
+        #BP.set_motor_power(BP.Port_B,0)
     elif word == "STOP":
         print("STOP")
-        BP.reset_all()
+        #BP.reset_all()
         break
     else:
         print("Not a command recognized by this program!")

@@ -2,7 +2,7 @@ import speech_recognition as sr
 import time
 import socket
 
-HOST = '192.168.1.138'
+HOST = '192.168.0.138'
 PORT = 9500
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((HOST, PORT))
