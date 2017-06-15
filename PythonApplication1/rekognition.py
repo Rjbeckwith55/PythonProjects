@@ -1,9 +1,9 @@
 import boto3
 
-BUCKET = "rjbeckwith-bucket"
-KEY = "picture.jpg"
+BUCKET = "rjbeckwith-bucket2"
+KEY = "Scott-face.jpg"
 
-def detect_labels(bucket, key, max_labels=10, min_confidence=90, region="eu-west-1"):
+def detect_labels(bucket, key, max_labels=10, min_confidence=90, region="us-east-1"):
 	rekognition = boto3.client("rekognition", region)
 	response = rekognition.detect_labels(
 		Image={

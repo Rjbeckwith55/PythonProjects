@@ -5,6 +5,7 @@ class Ship():
         self.screen=screen
 
         self.image = pygame.image.load('images/rocket.png')
+        pygame.transform.scale(self.image,(20,20))
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
 
@@ -12,3 +13,5 @@ class Ship():
         self.rect.bottom = self.screen_rect.bottom
     def blitme(self):
         self.screen.blit(self.image,self.rect)
+    def move_x(self):
+        
