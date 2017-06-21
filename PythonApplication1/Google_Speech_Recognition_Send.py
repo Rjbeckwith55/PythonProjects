@@ -1,12 +1,14 @@
 import speech_recognition as sr
 import time
-import socket 
-#import brickpi3
+import socket
 
-#BP.brickpi3.BrickPi3()
+HOST = '192.168.0.138'
+PORT = 9500
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((HOST, PORT))
+print("Connection to " + HOST + " was successful")
+
 word = ''
-
-
 # Record Audio
 while word != "quit":
     r = sr.Recognizer()
@@ -21,18 +23,21 @@ while word != "quit":
         print("You said: " + word)
         if word == "left":
             print("LEFT")
-            #BP.set_motor_position(BP.Port_A,45)
+            word = word.encode()
+            s.send(word)
         elif word == "right":
             print("RIGHT")
-            #BP.set_motor_position(BP.Port_A,-45)
+            word = word.encode()
+            s.send(word)
         elif word == "shoot":
             print("SHOOT")
-            #BP.set_motor_power(BP.Port_B,200)
-            #time.sleep(.65)
-            #BP.set_motor_power(BP.Port_B,0)
+            word = word.encode()
+            s.send(word)
         elif word == "stop" or word == "quit" or word == "no":
-            print("STOP")
-            #BP.reset_all()
+            word = "STOP"
+            print(word)
+            word = word.encode()
+            s.send(word)
             break
         else:
             print("Not a command recognized by this program!")
@@ -42,4 +47,3 @@ while word != "quit":
         print("Could not request results from Google Speech Recognition service; {0}".format(e))
     except KeyboardInterrupt:
         print("resetting all")
-        #BP.reset_all()
