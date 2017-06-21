@@ -29,6 +29,9 @@
     <Compile Include="game.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Max.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ship.py">
       <SubType>Code</SubType>
     </Compile>
