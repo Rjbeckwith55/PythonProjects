@@ -10,7 +10,7 @@ def splitParagraphIntoSentences(paragraph):
     return sentenceList
 
 #Calls the Espeak TTS Engine to read aloud a sentence
-#	-ven+m7:	Male voice
+#	er-ven+m7:	Male voice
 #	-s180:		set reading to 180 Words per minute
 #	-k20:		Emphasis on Capital letters
 def sound(spk):
@@ -21,8 +21,14 @@ def sound(spk):
 
 #Setting up the BrickPi for the page rotating arm
 BP = brickpi3.BrickPi3()
+roller = BP.PORT_B
+speed_roller=100
+speed_arm=100
+arm = BP.PORT_C
+BP.set_motor_power(roller,0)
 sp=105
-t=.5
+t1=.3
+t2=.9
 
 while True:
 	#Take an image from the RaspberryPi camera with sharpness 100(increases the readability of the text for OCR)
@@ -46,9 +52,31 @@ while True:
 		
 	#Move the motor arm to turn the page
 	print "Next Page"
-	'''BP.set_motor_power(BP.PORT_C,-sp) 	#Set the speed of MotorA (-255 to 255
-	time.sleep(t)              # sleep for 100 ms
-	BP.set_motor_power(BP.PORT_C,0) 
-	time.sleep(.5)  
-	BP.set_motor_power(BP.PORT_C,sp)  #Set the speed of MotorA (-255 to 255
-	time.sleep(t)  '''
+	BP.set_motor_power(roller, -speed_roller)
+	ot = time.time()
+	while(time.time() - ot < t1):    
+		init_pos = BP.get_motor_encoder(arm)
+		time.sleep(.1)          
+	
+	time.sleep(2)   
+	BP.set_motor_power(roller, -55)
+	BP.set_motor_power(arm, speed_arm) 
+
+	#Rotate the arm to flip the page and stop at the initial position
+	while True:			    
+		if(BP.get_motor_encoder(arm)-init_pos>710):                    
+			BP.set_motor_power(arm, -85)
+			time.sleep(.1) 
+			BP.set_motor_power(arm, 0)
+			time.sleep(.01) 
+			break
+		time.sleep(.01)              # sleep for 100 ms
+	
+	#Move the roller to bring pages down
+	time.sleep(2)   
+	BP.set_motor_power(roller, 50)
+	BP.set_motor_power(arm, 0)
+	ot = time.time()
+	while(time.time() - ot < 3):          
+		time.sleep(.1)            
+	time.sleep(3)
