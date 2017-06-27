@@ -8,7 +8,11 @@ while True:
     yourChoice = input("Choose Rock, Paper or Scissors: ")
     yourChoice = yourChoice.title()
     if(yourChoice == "p" or yourChoice == "P"):
-        yourChoice == rps[1]
+        yourChoice = rps[1]
+    if(yourChoice == "r" or yourChoice == "R"):
+        yourChoice = rps[0]
+    if(yourChoice == "S" or yourChoice == "s"):
+        yourChoice = rps[2]
     if (yourChoice == choice):#Rock vs Rock or Scissors vs Scissors or Paper vs Paper
         print(choice)
         print("Tie")
