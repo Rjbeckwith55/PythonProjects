@@ -34,7 +34,13 @@
     <Compile Include="Google_Speech_Recognition_Receive.py" />
     <Compile Include="Google_Speech_Recognition_Send.py" />
     <Compile Include="Google_Speech_Recognition.py" />
+    <Compile Include="BookReader.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="rekognition.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="rps.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ship.py">
