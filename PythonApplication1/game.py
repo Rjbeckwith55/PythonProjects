@@ -16,8 +16,7 @@ def run_game():
     while True:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_UP:
-                    print("up")
+                handle_keys()
             if event.type == pygame.QUIT:
                 sys.exit()
         ship.blitme()

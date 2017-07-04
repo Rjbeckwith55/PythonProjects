@@ -13,5 +13,11 @@ class Ship():
         self.rect.bottom = self.screen_rect.bottom
     def blitme(self):
         self.screen.blit(self.image,self.rect)
-    def move_x(self):
+    def handle_keys(self):
+        
+                if event.key == pygame.K_UP:
+                    ship.move_x(5)
+                    print("up")
+    def move_x(self,speed):
+        
         
