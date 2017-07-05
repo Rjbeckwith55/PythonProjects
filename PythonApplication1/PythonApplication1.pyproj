@@ -37,6 +37,9 @@
     <Compile Include="BookReader.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="polly.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="rekognition.py">
       <SubType>Code</SubType>
     </Compile>
