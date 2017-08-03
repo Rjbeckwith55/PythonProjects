@@ -5,9 +5,21 @@ pygame.init()
 screen = pygame.display.set_mode((600,400))
 BP = brickpi3.BrickPi3()
 speed = 100
+#pygame.joystick.init()
+#joystick = pygame.joystick.Joystick(0)
+#joystick.init()
 try:
     while True:
         for event in pygame.event.get():
+            if event.type == pygame.JOYBUTTONDOWN:
+                if joystick.get_button(0):
+                    BP.set_motor_power(BP.PORT_A,speed)
+                if joystick.get_button(5):
+                    BP.set_motor_power(BP.PORT_C,-speed)
+                if joystick.get_button(4):
+                    BP.set_motor_power(BP.PORT_B,-speed)
+            if event.type == pygame.JOYBUTTONUP:
+                BP.reset_all()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_s:
                     if speed == 50:
